@@ -5,8 +5,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var apiRouter = require('./routes/api');
 
-const express = require('express');
 const bodyParser = require('body-parser');
 
 // create express app
@@ -34,9 +34,21 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public'),{extensions:'html'}));
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/api', apiRouter);
+
+module.exports = app;
+
 // define a simple route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
+    res.sendFile(path.join(__dirname + '/public/homepage.html'));
 });
 
 require('./app/routes/recipe.routes.js')(app);

@@ -11,8 +11,11 @@ exports.create = (req, res) => {
 
   // Create a recipe
   const recipe = new Recipe({
-      title: req.body.title || "Untitled recipe",
-      content: req.body.content
+      rname: req.body.title || "Untitled recipe",
+      prep: req.body.prep,
+      cook: req.body.cook,
+      ingedients: req.body.ingedients,
+      instructions: req.body.instructions,
   });
 
   // Save recipe in the database
