@@ -28,7 +28,6 @@ exports.create = (req, res) => {
 
 // Retrieve and return all recipes from the database.
 exports.findAll = (req, res) => {
-  exports.findAll = (req, res) => {
       Recipe.find()
       .then(recipes => {
           res.send(recipes);
