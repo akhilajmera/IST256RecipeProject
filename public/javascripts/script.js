@@ -42,4 +42,36 @@ function loadRecipeList(){
     error: function(data){
       alert("error" + data.error)
     }
+});
 }
+
+$(document).ready(function()){
+  $("#submit").click(function (e){
+    var formName = $("#rname").val();
+    var formPrep = $("#prep").val();
+    var formCook = $("#cook").val();
+    var formIngredients = $("#ingredients").val();
+    var formInstructions = $("#instructions").val();
+    e.preventDefault();
+    var data = {};
+    data.rname = formName;
+    data.prep = formPrep;
+    data.cook = formCook;
+    data.ingredients = formIngredients;
+    data.instructions = formInstructions;
+    console.log("Data sent:"+data.rname+data.prep+data.cook+data.ingedients+data.instructions);
+      $.ajax({
+        type:'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        url:'http://127.0.0.1:3000/recipes',
+        success: function(data){
+          loadRecipeList();
+          document.getElementById("recipeForm").reset();
+        },
+        error: function(data){
+          alert("Error" + data.error)
+        }
+      });
+  });
+});
