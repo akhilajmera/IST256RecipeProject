@@ -2,7 +2,7 @@ module.exports = (app) => {
     const recipes = require('../controllers/recipe.controller.js');
 
     // Create a new recipe
-    app.post('/recipes', recipes.create);
+    app.post('/submit', recipes.create);
 
     // Retrieve all recipes
     app.get('/recipes', recipes.findAll);

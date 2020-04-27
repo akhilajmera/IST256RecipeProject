@@ -18,7 +18,8 @@ $.ajax({
   }
 });
 */
-var upc = upccode;
+function myFunction(){
+var upc = parseInt(document.getElementById("upccode").value);
 
 var settings = {
 	"async": true,
@@ -32,5 +33,10 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-	console.log(response);
+  document.getElementById("bname").innerHTML = response.brand_name;
+  document.getElementById("iname").innerHTML = response.item_name;
+  document.getElementById("calories").innerHTML = response.nf_calories;
+  document.getElementById("ingredients").innerHTML = response.nf_ingredient_statement;
+  console.log(response);
 });
+}
