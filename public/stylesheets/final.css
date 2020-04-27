@@ -9,7 +9,8 @@ p{
 body {
   background-color: #F1F2F2;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 50px;
+  margin-left: 50px;
 }
 /*end body copy and background color*/
 
@@ -30,17 +31,17 @@ h1{
 /*end styling for homepage*/
 
 /*styling for nav bar*/
-ul {
+.navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow:hidden;
 }
-li {
+.navbar ul li {
   float: left;
 }
 
-li a {
+.navbar ul li a {
   display: block;
   text-align: center;
   padding: 14px 16px;
@@ -95,25 +96,25 @@ font-family: 'Bebas Neue', cursive;
 .recipe-list{
   position:absolute;
   top:120%;
-
+}
+.recipe-list h2 {
+  float: inherit;
+  font-size: 60pt;
 }
 .list-image {
   float:left;
   margin-right: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+  margin-left: 50px;
 }
-.unordered-list{
-  position: relative;
-  float:right;
-}
-.directions{
-  float:right;
-}
+
 .ingredients{
   float:right;
+  position: static;
+  list-style-type: none;
 }
-.list-item{
-  display: list-item;
+li {
+  list-style-type: none;
 }
 
 /*end styling for listed recipes */
@@ -187,3 +188,5 @@ input[name="r"]{
 }
 
 /*end slideshow styling*/
+
+/*Start Nutrition Styling*/
